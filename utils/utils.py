@@ -366,7 +366,7 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
     (output_path / "object").mkdir(parents=True, exist_ok=True)
 
     # Save detection results (JSON)
-    detection_json_path = output_path / "detection_results" / "json" / f"{base_name}_detections.json"
+    detection_json_path = output_path / "detection_results" / "json" / f"{base_name}.json"
     save_detection_results(detections, str(detection_json_path))
     saved_files['Detection results (json)'] = str(detection_json_path)
 

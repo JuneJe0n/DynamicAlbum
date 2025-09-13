@@ -15,10 +15,10 @@ from utils import *
 
 # --- Config ---
 image_path = "/Users/jiyoonjeon/projects/DynamicAlbum/data/album/4 ONLY.jpg"  
-labels = ["bubble"]
-threshold = 0.3
 output_dir = "/Users/jiyoonjeon/projects/DynamicAlbum/data"
+labels = ["bubble"]
 
+threshold = 0.3
 detector_id = "IDEA-Research/grounding-dino-tiny"
 segmenter_id = "facebook/sam-vit-base"
 
