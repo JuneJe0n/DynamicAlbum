@@ -17,7 +17,7 @@ from utils import *
 image_path = "/Users/jiyoonjeon/projects/DynamicAlbum/data/album/4 ONLY.jpg"  
 labels = ["bubble"]
 threshold = 0.3
-output_dir = "/Users/jiyoonjeon/projects/DynamicAlbum/data/results"
+output_dir = "/Users/jiyoonjeon/projects/DynamicAlbum/data"
 
 detector_id = "IDEA-Research/grounding-dino-tiny"
 segmenter_id = "facebook/sam-vit-base"
@@ -116,13 +116,13 @@ def main():
         segmenter_id=segmenter_id
     )
 
-    print(f"Found {len(detections)} detections")
+    print(f"✅ Found {len(detections)} detections")
 
     # Generate base name for all output files
     input_name = Path(image_path).stem
 
     # Save all intermediate results
-    print("Saving all intermediate results...")
+    print("🎧 Saving all intermediate results...")
     saved_files = save_all_intermediate_results(
         image=image_array,
         detections=detections,
@@ -134,9 +134,7 @@ def main():
     print("\n=== Saved Files Summary ===")
     for file_type, file_path in saved_files.items():
         print(f"{file_type}: {file_path}")
-
-    print(f"\nResults saved to: {output_dir}")
-
+    print("\n===========================")
 
 if __name__ == "__main__":
     main()

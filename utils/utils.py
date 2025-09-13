@@ -286,28 +286,27 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
     output_path = Path(output_dir)
     output_path.mkdir(exist_ok=True)
 
-    # Convert image to numpy array if needed
     image_array = np.array(image) if isinstance(image, Image.Image) else image
 
     saved_files = {
-        'detection_results': None,
-        'combined_mask': None,
-        'visualization_with_masks': None,
+        'Detection results (json)': None,
+        'Detection results (img)': None,
+        'Mask': None,
     }
 
     # Save detection results (JSON)
-    detection_json_path = output_path / f"{base_name}_detections.json"
+    detection_json_path = output_path/"detection_results"/"json"/f"{base_name}_detections.json"
     save_detection_results(detections, str(detection_json_path))
-    saved_files['detection_results'] = str(detection_json_path)
+    saved_files['Mask'] = str(detection_json_path)
 
     # Save combined mask
-    combined_mask_path = output_path / f"{base_name}_combined_mask.png"
+    combined_mask_path = output_path /"mask"/ f"{base_name}.png"
     save_combined_mask(detections, str(combined_mask_path))
     saved_files['combined_mask'] = str(combined_mask_path)
 
     # Save visualization with masks
-    viz_with_masks_path = output_path / f"{base_name}_visualization_with_masks.png"
+    viz_with_masks_path = output_path/"detection_results"/"imgs"/f"{base_name}.png"
     save_detection_visualization(image_array, detections, str(viz_with_masks_path), show_boxes_only=False)
-    saved_files['visualization_with_masks'] = str(viz_with_masks_path)
+    saved_files['Detection results (img)'] = str(viz_with_masks_path)
 
     return saved_files
