@@ -1,0 +1,12 @@
+[
+  {
+    "label": "green balloon.",
+    "score": 0.8165144920349121,
+    "box": {
+      "xmin": 34,
+      "ymin": 82,
+      "xmax": 569,
+      "ymax": 471
+    }
+  }
+]

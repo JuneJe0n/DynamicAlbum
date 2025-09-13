@@ -1,0 +1,102 @@
+[
+  {
+    "label": "Person. Scooter.",
+    "score": 0.886589765548706,
+    "box": {
+      "xmin": 264,
+      "ymin": 283,
+      "xmax": 342,
+      "ymax": 463
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.8620975017547607,
+    "box": {
+      "xmin": 141,
+      "ymin": 291,
+      "xmax": 212,
+      "ymax": 423
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.8509317636489868,
+    "box": {
+      "xmin": 367,
+      "ymin": 273,
+      "xmax": 430,
+      "ymax": 416
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.8230409622192383,
+    "box": {
+      "xmin": 36,
+      "ymin": 285,
+      "xmax": 89,
+      "ymax": 455
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.805406928062439,
+    "box": {
+      "xmin": 493,
+      "ymin": 283,
+      "xmax": 568,
+      "ymax": 448
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.45994654297828674,
+    "box": {
+      "xmin": 258,
+      "ymin": 359,
+      "xmax": 368,
+      "ymax": 470
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.43804430961608887,
+    "box": {
+      "xmin": 380,
+      "ymin": 346,
+      "xmax": 440,
+      "ymax": 421
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.43577665090560913,
+    "box": {
+      "xmin": 170,
+      "ymin": 347,
+      "xmax": 227,
+      "ymax": 429
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.375262051820755,
+    "box": {
+      "xmin": 514,
+      "ymin": 356,
+      "xmax": 586,
+      "ymax": 454
+    }
+  },
+  {
+    "label": "Person. Scooter.",
+    "score": 0.32454490661621094,
+    "box": {
+      "xmin": 36,
+      "ymin": 357,
+      "xmax": 92,
+      "ymax": 455
+    }
+  }
+]

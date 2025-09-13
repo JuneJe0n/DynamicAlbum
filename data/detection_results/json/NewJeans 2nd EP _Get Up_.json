@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Character.",
+    "score": 0.6003733277320862,
+    "box": {
+      "xmin": 426,
+      "ymin": 123,
+      "xmax": 582,
+      "ymax": 279
+    }
+  },
+  {
+    "label": "Character.",
+    "score": 0.5386338233947754,
+    "box": {
+      "xmin": 109,
+      "ymin": 52,
+      "xmax": 261,
+      "ymax": 220
+    }
+  },
+  {
+    "label": "Character.",
+    "score": 0.47160977125167847,
+    "box": {
+      "xmin": 47,
+      "ymin": 339,
+      "xmax": 228,
+      "ymax": 508
+    }
+  },
+  {
+    "label": "Character.",
+    "score": 0.42660579085350037,
+    "box": {
+      "xmin": 182,
+      "ymin": 193,
+      "xmax": 405,
+      "ymax": 364
+    }
+  },
+  {
+    "label": "Character.",
+    "score": 0.3939751386642456,
+    "box": {
+      "xmin": 333,
+      "ymin": 360,
+      "xmax": 525,
+      "ymax": 523
+    }
+  }
+]

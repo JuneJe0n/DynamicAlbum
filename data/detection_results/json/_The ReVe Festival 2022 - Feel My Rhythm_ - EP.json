@@ -1,0 +1,302 @@
+[
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.7424182295799255,
+    "box": {
+      "xmin": 54,
+      "ymin": 13,
+      "xmax": 79,
+      "ymax": 46
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.7060869932174683,
+    "box": {
+      "xmin": 217,
+      "ymin": 225,
+      "xmax": 250,
+      "ymax": 259
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.6847898364067078,
+    "box": {
+      "xmin": 480,
+      "ymin": 97,
+      "xmax": 499,
+      "ymax": 124
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.6678009033203125,
+    "box": {
+      "xmin": 395,
+      "ymin": 10,
+      "xmax": 414,
+      "ymax": 29
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5857122540473938,
+    "box": {
+      "xmin": 25,
+      "ymin": 247,
+      "xmax": 62,
+      "ymax": 278
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5820955038070679,
+    "box": {
+      "xmin": 9,
+      "ymin": 291,
+      "xmax": 44,
+      "ymax": 327
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5572665929794312,
+    "box": {
+      "xmin": 0,
+      "ymin": 465,
+      "xmax": 114,
+      "ymax": 556
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5473927855491638,
+    "box": {
+      "xmin": 57,
+      "ymin": 346,
+      "xmax": 82,
+      "ymax": 370
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5424697399139404,
+    "box": {
+      "xmin": 494,
+      "ymin": 459,
+      "xmax": 598,
+      "ymax": 559
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5400763154029846,
+    "box": {
+      "xmin": 32,
+      "ymin": 371,
+      "xmax": 60,
+      "ymax": 397
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5386562347412109,
+    "box": {
+      "xmin": 529,
+      "ymin": 248,
+      "xmax": 556,
+      "ymax": 275
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5386500954627991,
+    "box": {
+      "xmin": 45,
+      "ymin": 441,
+      "xmax": 89,
+      "ymax": 480
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5306830406188965,
+    "box": {
+      "xmin": 495,
+      "ymin": 551,
+      "xmax": 558,
+      "ymax": 599
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5293018221855164,
+    "box": {
+      "xmin": 523,
+      "ymin": 311,
+      "xmax": 548,
+      "ymax": 333
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5236321687698364,
+    "box": {
+      "xmin": 54,
+      "ymin": 542,
+      "xmax": 142,
+      "ymax": 599
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5192224383354187,
+    "box": {
+      "xmin": 552,
+      "ymin": 198,
+      "xmax": 579,
+      "ymax": 224
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.5026473999023438,
+    "box": {
+      "xmin": 557,
+      "ymin": 544,
+      "xmax": 599,
+      "ymax": 585
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4991770386695862,
+    "box": {
+      "xmin": 554,
+      "ymin": 413,
+      "xmax": 593,
+      "ymax": 454
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4929121732711792,
+    "box": {
+      "xmin": 0,
+      "ymin": 407,
+      "xmax": 44,
+      "ymax": 452
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4836938679218292,
+    "box": {
+      "xmin": 33,
+      "ymin": 403,
+      "xmax": 80,
+      "ymax": 433
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4795023500919342,
+    "box": {
+      "xmin": 556,
+      "ymin": 376,
+      "xmax": 582,
+      "ymax": 401
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.45480573177337646,
+    "box": {
+      "xmin": 570,
+      "ymin": 311,
+      "xmax": 588,
+      "ymax": 325
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.42745426297187805,
+    "box": {
+      "xmin": 261,
+      "ymin": 511,
+      "xmax": 286,
+      "ymax": 536
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4197712540626526,
+    "box": {
+      "xmin": 159,
+      "ymin": 585,
+      "xmax": 211,
+      "ymax": 599
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4181135892868042,
+    "box": {
+      "xmin": 135,
+      "ymin": 535,
+      "xmax": 214,
+      "ymax": 589
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.4026676416397095,
+    "box": {
+      "xmin": 515,
+      "ymin": 416,
+      "xmax": 531,
+      "ymax": 433
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.3605446517467499,
+    "box": {
+      "xmin": 474,
+      "ymin": 514,
+      "xmax": 501,
+      "ymax": 552
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.34099408984184265,
+    "box": {
+      "xmin": 496,
+      "ymin": 441,
+      "xmax": 548,
+      "ymax": 482
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.33463501930236816,
+    "box": {
+      "xmin": 544,
+      "ymin": 407,
+      "xmax": 561,
+      "ymax": 424
+    }
+  },
+  {
+    "label": "flowers. butterflies.",
+    "score": 0.300874799489975,
+    "box": {
+      "xmin": 153,
+      "ymin": 536,
+      "xmax": 214,
+      "ymax": 589
+    }
+  }
+]

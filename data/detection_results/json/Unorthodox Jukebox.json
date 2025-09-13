@@ -1,0 +1,32 @@
+[
+  {
+    "label": "gorilla. hand.",
+    "score": 0.9185560941696167,
+    "box": {
+      "xmin": 231,
+      "ymin": 129,
+      "xmax": 472,
+      "ymax": 556
+    }
+  },
+  {
+    "label": "gorilla. hand.",
+    "score": 0.3627910912036896,
+    "box": {
+      "xmin": 231,
+      "ymin": 180,
+      "xmax": 318,
+      "ymax": 246
+    }
+  },
+  {
+    "label": "gorilla. hand.",
+    "score": 0.3125622570514679,
+    "box": {
+      "xmin": 267,
+      "ymin": 298,
+      "xmax": 336,
+      "ymax": 358
+    }
+  }
+]

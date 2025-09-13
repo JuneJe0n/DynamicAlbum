@@ -1,0 +1,92 @@
+[
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.6006538271903992,
+    "box": {
+      "xmin": 77,
+      "ymin": 301,
+      "xmax": 97,
+      "ymax": 353
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.4967672824859619,
+    "box": {
+      "xmin": 388,
+      "ymin": 132,
+      "xmax": 422,
+      "ymax": 184
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.4838063418865204,
+    "box": {
+      "xmin": 270,
+      "ymin": 450,
+      "xmax": 325,
+      "ymax": 517
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.3923362195491791,
+    "box": {
+      "xmin": 121,
+      "ymin": 211,
+      "xmax": 152,
+      "ymax": 233
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.35943353176116943,
+    "box": {
+      "xmin": 128,
+      "ymin": 193,
+      "xmax": 148,
+      "ymax": 212
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.35154739022254944,
+    "box": {
+      "xmin": 124,
+      "ymin": 121,
+      "xmax": 183,
+      "ymax": 201
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.35095128417015076,
+    "box": {
+      "xmin": 121,
+      "ymin": 193,
+      "xmax": 152,
+      "ymax": 233
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.3133092224597931,
+    "box": {
+      "xmin": 195,
+      "ymin": 165,
+      "xmax": 290,
+      "ymax": 234
+    }
+  },
+  {
+    "label": "lamp. flowers. couch. frame.",
+    "score": 0.3115454614162445,
+    "box": {
+      "xmin": 290,
+      "ymin": 165,
+      "xmax": 382,
+      "ymax": 235
+    }
+  }
+]
