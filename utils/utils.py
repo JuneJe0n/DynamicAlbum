@@ -281,6 +281,40 @@ def save_background_image(image: np.ndarray, detections: List[DetectionResult], 
     Image.fromarray(background_image).save(output_path)
 
 
+def save_objects_only(image: np.ndarray, detections: List[DetectionResult], output_path: str) -> None:
+    """Save only segmented objects with transparent background using the same logic as save_combined_mask"""
+    if not detections or all(d.mask is None for d in detections):
+        # No masks, save empty transparent image
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        transparent_img = Image.new('RGBA', (image.shape[1], image.shape[0]), (0, 0, 0, 0))
+        transparent_img.save(output_path)
+        return
+
+    # Use the same logic as save_combined_mask
+    first_mask = next(d.mask for d in detections if d.mask is not None)
+    combined_mask = np.zeros_like(first_mask, dtype=np.uint8)
+
+    # Combine all masks as binary (white where any mask exists)
+    for detection in detections:
+        if detection.mask is not None:
+            binary_detection = (detection.mask > 0).astype(np.uint8)
+            combined_mask = np.where(binary_detection > 0, 255, combined_mask)
+
+    # Create RGBA image with transparency
+    rgba_image = np.zeros((image.shape[0], image.shape[1], 4), dtype=np.uint8)
+
+    # Copy RGB channels from original image
+    rgba_image[:, :, :3] = image
+
+    # Set alpha channel: 255 (opaque) where mask exists, 0 (transparent) elsewhere
+    mask_boolean = combined_mask > 0
+    rgba_image[:, :, 3] = np.where(mask_boolean, 255, 0)
+
+    # Save as PNG with transparency
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(rgba_image, mode='RGBA').save(output_path)
+
+
 def save_detection_visualization(image: np.ndarray, detections: List[DetectionResult],
                                 output_path: str, show_boxes_only: bool = False) -> None:
     """Save detection visualization with bounding boxes and/or masks."""
@@ -321,6 +355,7 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
         'Detection results (img)': None,
         'Mask': None,
         'Background': None,
+        'Objects': None,
     }
 
     # Create subdirectories
@@ -328,6 +363,7 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
     (output_path / "detection_results" / "imgs").mkdir(parents=True, exist_ok=True)
     (output_path / "mask").mkdir(parents=True, exist_ok=True)
     (output_path / "background").mkdir(parents=True, exist_ok=True)
+    (output_path / "object").mkdir(parents=True, exist_ok=True)
 
     # Save detection results (JSON)
     detection_json_path = output_path / "detection_results" / "json" / f"{base_name}_detections.json"
@@ -348,5 +384,10 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
     background_path = output_path / "background" / f"{base_name}.png"
     save_background_image(image_array, detections, str(background_path))
     saved_files['Background'] = str(background_path)
+
+    # Save objects only (transparent background)
+    objects_only_path = output_path / "object" / f"{base_name}.png"
+    save_objects_only(image_array, detections, str(objects_only_path))
+    saved_files['Objects'] = str(objects_only_path)
 
     return saved_files
