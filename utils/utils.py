@@ -189,7 +189,7 @@ def refine_masks(masks: torch.BoolTensor, polygon_refinement: bool = False) -> L
     return masks
 
 
-# --- Save utils ---
+# --- Save ---
 def save_detection_results(detections: List[DetectionResult], output_path: str) -> None:
     """Save detection results (bounding boxes and labels) to JSON file."""
     results_data = []
@@ -253,6 +253,34 @@ def save_combined_mask(detections: List[DetectionResult], output_path: str) -> N
     combined_img.save(output_path)
 
 
+def save_background_image(image: np.ndarray, detections: List[DetectionResult], output_path: str) -> None:
+    """Save background image with segmented parts made black"""
+    if not detections or all(d.mask is None for d in detections):
+        # No masks, save original image
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(image).save(output_path)
+        return
+
+    # Use the same logic as save_combined_mask
+    first_mask = next(d.mask for d in detections if d.mask is not None)
+    combined_mask = np.zeros_like(first_mask, dtype=np.uint8)
+
+    # Combine all masks as binary (white where any mask exists)
+    for detection in detections:
+        if detection.mask is not None:
+            binary_detection = (detection.mask > 0).astype(np.uint8)
+            combined_mask = np.where(binary_detection > 0, 255, combined_mask)
+
+    # Create background image: original with segmented parts made black
+    background_image = image.copy()
+    mask_boolean = combined_mask > 0
+    background_image[mask_boolean] = [0, 0, 0]
+
+    # Save background image
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(background_image).save(output_path)
+
+
 def save_detection_visualization(image: np.ndarray, detections: List[DetectionResult],
                                 output_path: str, show_boxes_only: bool = False) -> None:
     """Save detection visualization with bounding boxes and/or masks."""
@@ -292,21 +320,33 @@ def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
         'Detection results (json)': None,
         'Detection results (img)': None,
         'Mask': None,
+        'Background': None,
     }
 
+    # Create subdirectories
+    (output_path / "detection_results" / "json").mkdir(parents=True, exist_ok=True)
+    (output_path / "detection_results" / "imgs").mkdir(parents=True, exist_ok=True)
+    (output_path / "mask").mkdir(parents=True, exist_ok=True)
+    (output_path / "background").mkdir(parents=True, exist_ok=True)
+
     # Save detection results (JSON)
-    detection_json_path = output_path/"detection_results"/"json"/f"{base_name}_detections.json"
+    detection_json_path = output_path / "detection_results" / "json" / f"{base_name}_detections.json"
     save_detection_results(detections, str(detection_json_path))
-    saved_files['Mask'] = str(detection_json_path)
+    saved_files['Detection results (json)'] = str(detection_json_path)
 
     # Save combined mask
-    combined_mask_path = output_path /"mask"/ f"{base_name}.png"
+    combined_mask_path = output_path / "mask" / f"{base_name}.png"
     save_combined_mask(detections, str(combined_mask_path))
-    saved_files['combined_mask'] = str(combined_mask_path)
+    saved_files['Mask'] = str(combined_mask_path)
 
     # Save visualization with masks
-    viz_with_masks_path = output_path/"detection_results"/"imgs"/f"{base_name}.png"
+    viz_with_masks_path = output_path / "detection_results" / "imgs" / f"{base_name}.png"
     save_detection_visualization(image_array, detections, str(viz_with_masks_path), show_boxes_only=False)
     saved_files['Detection results (img)'] = str(viz_with_masks_path)
+
+    # Save background image
+    background_path = output_path / "background" / f"{base_name}.png"
+    save_background_image(image_array, detections, str(background_path))
+    saved_files['Background'] = str(background_path)
 
     return saved_files

@@ -12,6 +12,7 @@ from .utils import (
     save_detection_results,
     save_segmentation_masks,
     save_combined_mask,
+    save_background_image,
     save_detection_visualization,
     save_all_intermediate_results
 )
@@ -30,6 +31,7 @@ __all__ = [
     'save_detection_results',
     'save_segmentation_masks',
     'save_combined_mask',
+    'save_background_image',
     'save_detection_visualization',
     'save_all_intermediate_results'
 ]
