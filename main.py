@@ -15,7 +15,7 @@ from utils import *
 
 # --- Config ---
 image_path = "/Users/jiyoonjeon/projects/DynamicAlbum/data/album/4 ONLY.jpg"  
-labels = ["a cat.", "a remote control."]
+labels = ["bubble"]
 threshold = 0.3
 output_dir = "/Users/jiyoonjeon/projects/DynamicAlbum/data/results"
 
@@ -100,7 +100,13 @@ def main():
     # Create output directory if it doesn't exist
     output_path = Path(output_dir)
     output_path.mkdir(exist_ok=True)
-    
+
+    print(f"Processing image: {image_path}")
+    print(f"Labels to detect: {labels}")
+    print(f"Threshold: {threshold}")
+    print(f"Output directory: {output_dir}")
+
+    # Run grounded segmentation
     image_array, detections = grounded_segmentation(
         image=image_path,
         labels=labels,
@@ -109,12 +115,27 @@ def main():
         detector_id=detector_id,
         segmenter_id=segmenter_id
     )
-    
-    # Generate output filename based on input image
+
+    print(f"Found {len(detections)} detections")
+
+    # Generate base name for all output files
     input_name = Path(image_path).stem
-    output_file = output_path / f"{input_name}_detected.png"
-    
-    plot_detections(image_array, detections, str(output_file))
+
+    # Save all intermediate results
+    print("Saving all intermediate results...")
+    saved_files = save_all_intermediate_results(
+        image=image_array,
+        detections=detections,
+        output_dir=output_dir,
+        base_name=input_name
+    )
+
+    # Print summary of saved files
+    print("\n=== Saved Files Summary ===")
+    for file_type, file_path in saved_files.items():
+        print(f"{file_type}: {file_path}")
+
+    print(f"\nResults saved to: {output_dir}")
 
 
 if __name__ == "__main__":

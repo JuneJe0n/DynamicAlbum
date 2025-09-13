@@ -1,0 +1,42 @@
+[
+  {
+    "label": "bubble.",
+    "score": 0.45503655076026917,
+    "box": {
+      "xmin": 29,
+      "ymin": 119,
+      "xmax": 200,
+      "ymax": 289
+    }
+  },
+  {
+    "label": "bubble.",
+    "score": 0.38304489850997925,
+    "box": {
+      "xmin": 194,
+      "ymin": 26,
+      "xmax": 313,
+      "ymax": 145
+    }
+  },
+  {
+    "label": "bubble.",
+    "score": 0.3661203980445862,
+    "box": {
+      "xmin": 224,
+      "ymin": 257,
+      "xmax": 304,
+      "ymax": 338
+    }
+  },
+  {
+    "label": "bubble.",
+    "score": 0.3644280731678009,
+    "box": {
+      "xmin": 42,
+      "ymin": 345,
+      "xmax": 256,
+      "ymax": 558
+    }
+  }
+]

@@ -1,5 +1,6 @@
 import random
-from dataclasses import dataclass
+import json
+from dataclasses import dataclass, asdict
 from typing import Any, List, Dict, Optional, Union, Tuple
 from pathlib import Path
 
@@ -118,94 +119,6 @@ def random_named_css_colors(num_colors: int) -> List[str]:
     # Sample random named CSS colors
     return random.sample(named_css_colors, min(num_colors, len(named_css_colors)))
 
-def plot_detections_plotly(
-    image: np.ndarray,
-    detections: List[DetectionResult],
-    class_colors: Optional[Dict[str, str]] = None
-) -> None:
-    # If class_colors is not provided, generate random colors for each class
-    if class_colors is None:
-        num_detections = len(detections)
-        colors = random_named_css_colors(num_detections)
-        class_colors = {}
-        for i in range(num_detections):
-            class_colors[i] = colors[i]
-
-
-    fig = px.imshow(image)
-
-    # Add bounding boxes
-    shapes = []
-    annotations = []
-    for idx, detection in enumerate(detections):
-        label = detection.label
-        box = detection.box
-        score = detection.score
-        mask = detection.mask
-
-        polygon = mask_to_polygon(mask)
-
-        fig.add_trace(go.Scatter(
-            x=[point[0] for point in polygon] + [polygon[0][0]],
-            y=[point[1] for point in polygon] + [polygon[0][1]],
-            mode='lines',
-            line=dict(color=class_colors[idx], width=2),
-            fill='toself',
-            name=f"{label}: {score:.2f}"
-        ))
-
-        xmin, ymin, xmax, ymax = box.xyxy
-        shape = [
-            dict(
-                type="rect",
-                xref="x", yref="y",
-                x0=xmin, y0=ymin,
-                x1=xmax, y1=ymax,
-                line=dict(color=class_colors[idx])
-            )
-        ]
-        annotation = [
-            dict(
-                x=(xmin+xmax) // 2, y=(ymin+ymax) // 2,
-                xref="x", yref="y",
-                text=f"{label}: {score:.2f}",
-            )
-        ]
-
-        shapes.append(shape)
-        annotations.append(annotation)
-
-    # Update layout
-    button_shapes = [dict(label="None",method="relayout",args=["shapes", []])]
-    button_shapes = button_shapes + [
-        dict(label=f"Detection {idx+1}",method="relayout",args=["shapes", shape]) for idx, shape in enumerate(shapes)
-    ]
-    button_shapes = button_shapes + [dict(label="All", method="relayout", args=["shapes", sum(shapes, [])])]
-
-    fig.update_layout(
-        xaxis=dict(visible=False),
-        yaxis=dict(visible=False),
-        # margin=dict(l=0, r=0, t=0, b=0),
-        showlegend=True,
-        updatemenus=[
-            dict(
-                type="buttons",
-                direction="up",
-                buttons=button_shapes
-            )
-        ],
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
-        )
-    )
-
-    # Show plot
-    fig.show()
-
 
 # --- Utils ---
 def mask_to_polygon(mask: np.ndarray) -> List[List[int]]:
@@ -274,3 +187,127 @@ def refine_masks(masks: torch.BoolTensor, polygon_refinement: bool = False) -> L
             masks[idx] = mask
 
     return masks
+
+
+# --- Save utils ---
+def save_detection_results(detections: List[DetectionResult], output_path: str) -> None:
+    """Save detection results (bounding boxes and labels) to JSON file."""
+    results_data = []
+    for detection in detections:
+        result_dict = {
+            'label': detection.label,
+            'score': detection.score,
+            'box': {
+                'xmin': detection.box.xmin,
+                'ymin': detection.box.ymin,
+                'xmax': detection.box.xmax,
+                'ymax': detection.box.ymax
+            }
+        }
+        results_data.append(result_dict)
+
+    with open(output_path, 'w') as f:
+        json.dump(results_data, f, indent=2)
+
+
+def save_segmentation_masks(detections: List[DetectionResult], output_dir: str, base_name: str) -> List[str]:
+    """Save individual segmentation masks and return list of saved file paths."""
+    saved_paths = []
+    output_path = Path(output_dir)
+    output_path.mkdir(exist_ok=True)
+
+    for i, detection in enumerate(detections):
+        if detection.mask is not None:
+            mask_filename = f"{base_name}_mask_{i}_{detection.label.replace(' ', '_')}.png"
+            mask_path = output_path / mask_filename
+
+            # Ensure mask is in proper format for saving
+            # Convert to binary mask (0 or 255)
+            binary_mask = (detection.mask > 0).astype(np.uint8) * 255
+
+            # Convert to PIL Image and save
+            mask_img = Image.fromarray(binary_mask, mode='L')  # 'L' mode for grayscale
+            mask_img.save(mask_path)
+            saved_paths.append(str(mask_path))
+
+    return saved_paths
+
+
+def save_combined_mask(detections: List[DetectionResult], output_path: str) -> None:
+    """Save a combined mask with all detections as black and white."""
+    if not detections or all(d.mask is None for d in detections):
+        return
+
+    # Get image dimensions from first mask
+    first_mask = next(d.mask for d in detections if d.mask is not None)
+    combined_mask = np.zeros_like(first_mask, dtype=np.uint8)
+
+    # Combine all masks as binary (white where any mask exists)
+    for detection in detections:
+        if detection.mask is not None:
+            binary_detection = (detection.mask > 0).astype(np.uint8)
+            combined_mask = np.where(binary_detection > 0, 255, combined_mask)
+
+    # Save combined mask
+    combined_img = Image.fromarray(combined_mask, mode='L')
+    combined_img.save(output_path)
+
+
+def save_detection_visualization(image: np.ndarray, detections: List[DetectionResult],
+                                output_path: str, show_boxes_only: bool = False) -> None:
+    """Save detection visualization with bounding boxes and/or masks."""
+    if show_boxes_only:
+        # Create a copy for boxes-only visualization
+        detections_boxes_only = []
+        for detection in detections:
+            det_copy = DetectionResult(
+                score=detection.score,
+                label=detection.label,
+                box=detection.box,
+                mask=None  # Remove mask for boxes-only visualization
+            )
+            detections_boxes_only.append(det_copy)
+        annotated_image = annotate(image, detections_boxes_only)
+    else:
+        annotated_image = annotate(image, detections)
+
+    plt.figure(figsize=(12, 8))
+    plt.imshow(annotated_image)
+    plt.axis('off')
+    plt.title('Detections' if not show_boxes_only else 'Bounding Boxes Only')
+    plt.savefig(output_path, bbox_inches='tight', dpi=150)
+    plt.close()
+
+
+def save_all_intermediate_results(image: Union[Image.Image, np.ndarray],
+                                 detections: List[DetectionResult],
+                                 output_dir: str, base_name: str) -> Dict[str, Any]:
+    """Save detection results (JSON), combined mask, and visualization with masks."""
+    output_path = Path(output_dir)
+    output_path.mkdir(exist_ok=True)
+
+    # Convert image to numpy array if needed
+    image_array = np.array(image) if isinstance(image, Image.Image) else image
+
+    saved_files = {
+        'detection_results': None,
+        'combined_mask': None,
+        'visualization_with_masks': None,
+    }
+
+    # Save detection results (JSON)
+    detection_json_path = output_path / f"{base_name}_detections.json"
+    save_detection_results(detections, str(detection_json_path))
+    saved_files['detection_results'] = str(detection_json_path)
+
+    # Save combined mask
+    combined_mask_path = output_path / f"{base_name}_combined_mask.png"
+    save_combined_mask(detections, str(combined_mask_path))
+    saved_files['combined_mask'] = str(combined_mask_path)
+
+    # Save visualization with masks
+    viz_with_masks_path = output_path / f"{base_name}_visualization_with_masks.png"
+    save_detection_visualization(image_array, detections, str(viz_with_masks_path), show_boxes_only=False)
+    saved_files['visualization_with_masks'] = str(viz_with_masks_path)
+
+    return saved_files
