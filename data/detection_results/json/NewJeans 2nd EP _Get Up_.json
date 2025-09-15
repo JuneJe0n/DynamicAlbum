@@ -1,52 +1,72 @@
 [
   {
-    "label": "Character.",
-    "score": 0.6003733277320862,
+    "label": "fairy.",
+    "score": 0.6130240559577942,
     "box": {
-      "xmin": 426,
-      "ymin": 123,
-      "xmax": 582,
-      "ymax": 279
+      "xmin": 376,
+      "ymin": 104,
+      "xmax": 501,
+      "ymax": 246
     }
   },
   {
-    "label": "Character.",
-    "score": 0.5386338233947754,
+    "label": "fairy.",
+    "score": 0.5749945640563965,
     "box": {
-      "xmin": 109,
-      "ymin": 52,
-      "xmax": 261,
-      "ymax": 220
+      "xmin": 22,
+      "ymin": 310,
+      "xmax": 177,
+      "ymax": 466
     }
   },
   {
-    "label": "Character.",
-    "score": 0.47160977125167847,
+    "label": "fairy.",
+    "score": 0.48944684863090515,
     "box": {
-      "xmin": 47,
-      "ymin": 339,
-      "xmax": 228,
-      "ymax": 508
+      "xmin": 166,
+      "ymin": 173,
+      "xmax": 339,
+      "ymax": 332
     }
   },
   {
-    "label": "Character.",
-    "score": 0.42660579085350037,
+    "label": "fairy.",
+    "score": 0.44645559787750244,
     "box": {
-      "xmin": 182,
-      "ymin": 193,
-      "xmax": 405,
-      "ymax": 364
+      "xmin": 101,
+      "ymin": 35,
+      "xmax": 214,
+      "ymax": 191
     }
   },
   {
-    "label": "Character.",
-    "score": 0.3939751386642456,
+    "label": "fairy.",
+    "score": 0.42308133840560913,
     "box": {
-      "xmin": 333,
-      "ymin": 360,
-      "xmax": 525,
-      "ymax": 523
+      "xmin": 302,
+      "ymin": 333,
+      "xmax": 447,
+      "ymax": 485
+    }
+  },
+  {
+    "label": "fairy.",
+    "score": 0.3647671341896057,
+    "box": {
+      "xmin": 101,
+      "ymin": 35,
+      "xmax": 339,
+      "ymax": 332
+    }
+  },
+  {
+    "label": "fairy.",
+    "score": 0.32823383808135986,
+    "box": {
+      "xmin": 302,
+      "ymin": 333,
+      "xmax": 447,
+      "ymax": 516
     }
   }
 ]
