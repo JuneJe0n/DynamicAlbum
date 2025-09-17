@@ -224,7 +224,6 @@ def save_segmentation_masks(detections: List[DetectionResult], output_dir: str, 
             # Ensure mask is in proper format for saving
             # Convert to binary mask (0 or 255)
             binary_mask = (detection.mask > 0).astype(np.uint8) * 255
-            binary_mask = 255 - binary_mask
 
             # Convert to PIL Image and save
             mask_img = Image.fromarray(binary_mask, mode='L')  # 'L' mode for grayscale
