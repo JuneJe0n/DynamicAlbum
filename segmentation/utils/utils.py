@@ -224,6 +224,7 @@ def save_segmentation_masks(detections: List[DetectionResult], output_dir: str, 
             # Ensure mask is in proper format for saving
             # Convert to binary mask (0 or 255)
             binary_mask = (detection.mask > 0).astype(np.uint8) * 255
+            binary_mask = 255 - binary_mask
 
             # Convert to PIL Image and save
             mask_img = Image.fromarray(binary_mask, mode='L')  # 'L' mode for grayscale
@@ -247,7 +248,7 @@ def save_combined_mask(detections: List[DetectionResult], output_path: str) -> N
         if detection.mask is not None:
             binary_detection = (detection.mask > 0).astype(np.uint8)
             combined_mask = np.where(binary_detection > 0, 255, combined_mask)
-
+    
     # Save combined mask
     combined_img = Image.fromarray(combined_mask, mode='L')
     combined_img.save(output_path)
