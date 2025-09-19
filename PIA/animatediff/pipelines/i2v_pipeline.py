@@ -154,6 +154,7 @@ class I2VPipeline(DiffusionPipeline, IPAdapterMixin, TextualInversionLoaderMixin
         ip_adapter_scale: float = 0.0,
         only_load_vae_decoder: bool = False,
         only_load_vae_encoder: bool = False,
+        device: str = "cuda:0",
     ) -> "I2VPipeline":
         """Method to build pipeline in a faster way~
         Args:
@@ -279,7 +280,7 @@ class I2VPipeline(DiffusionPipeline, IPAdapterMixin, TextualInversionLoaderMixin
             print(" <<< Loaded LoRA        <<<")
 
         # move model to device
-        device = torch.device("cuda")
+        device = torch.device(device)
         unet_dtype = torch.float16
         tenc_dtype = torch.float16
         vae_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32

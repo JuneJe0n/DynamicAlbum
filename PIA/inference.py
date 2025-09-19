@@ -1,4 +1,9 @@
 # Adapted from https://github.com/showlab/Tune-A-Video/blob/main/tuneavideo/pipelines/pipeline_tuneavideo.py
+"""
+Inference codes
+Example cmd : python inference.py --config=example/config/harry.yaml --gpu=1
+"""
+
 import argparse
 import os
 
@@ -23,6 +28,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     functional_group = parser.add_mutually_exclusive_group()
     parser.add_argument("--config", type=str, default="configs/test.yaml")
+    parser.add_argument("--gpu", type=int, default=0, help="GPU device number to use")
     parser.add_argument(
         "--magnitude", type=int, default=None, choices=[0, 1, 2, -1, -2, -3]
     )  # negative is for style transfer
@@ -67,8 +73,9 @@ if __name__ == "__main__":
         dreambooth_path,
         lora_path,
         lora_alpha,
+        device=f"cuda:{args.gpu}",
     )
-    generator = torch.Generator(device="cuda")
+    generator = torch.Generator(device=f"cuda:{args.gpu}")
     generator.manual_seed(config.generate.global_seed)
 
     global_inf_num = 0
