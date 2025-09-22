@@ -2,32 +2,7 @@ import os
 import numpy as np
 
 import cv2
-# from diffusers.utils import load_image    
-# from simple_lama_inpainting import SimpleLama
 from PIL import Image, ImageOps, ImageFilter
-
-# ----------- Convert all extensions to .png -------------
-# def convert2png(open_path, save_path):
-#     os.makedirs(save_path, exist_ok=True)
-#     num_converts = 0
-#     for filename in os.listdir(open_path):
-#         file_path = os.path.join(open_path, filename)
-#         name, ext = os.path.splitext(filename)
-#         ext_lower = ext.lower()
-        
-#         num_converts += 1
-#         with Image.open(file_path) as img:
-#             png_filename = name + '.png'
-#             png_path = os.path.join(save_path, png_filename)
-            
-#             if img.mode in ('RGBA', 'LA'):
-#                 img.save(png_path, 'PNG')
-#             else:
-#                 img_rgb = img.convert('RGB')
-#                 img_rgb.save(png_path, 'PNG')
-#     print(f"\n 🎨 {num_converts} images are converted to PNG and saved at {save_path}.")
-    
-#     return
 
 # ------------ Expand mask -----------
 def expand_mask(open_path, output_path, expansion_pixels=10):
@@ -72,8 +47,6 @@ def save_paired_data(image_path, mask_path, paired_dir):
 def run_inpaint(data_path, output_dir):
 
     os.makedirs(output_dir, exist_ok=True)
-    # filename = image_path.split('/')[-1].split('.')[0]
-    # save_path = os.path.join(output_dir, f"{filename}.png")
     origin_dir = os.getcwd()
     lama_path = os.path.join(origin_dir, "lama")
     os.chdir(lama_path)
@@ -84,19 +57,5 @@ def run_inpaint(data_path, output_dir):
     
     os.chdir(origin_dir)
     print(f"Change Directory to {origin_dir}...")
-    
-    # simple_lama = SimpleLama()
-    # print(f"model is loaded.")
-
-    #img_path = "image.png"
-    #mask_path = "mask.png"
-
-    # image = Image.open(image_path).resize((1024, 1024))
-    # mask = Image.open(mask_path).resize((1024, 1024)).convert('L')
-
-    # mask_image = mask_image.filter(ImageFilter.MaxFilter(13))
-
-    # result = simple_lama(image, mask)
-    # result.save(save_path, 'PNG')
     
     return 

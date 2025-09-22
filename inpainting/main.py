@@ -5,17 +5,11 @@ def main():
     # define paths
     image_path = "/Users/minair/DynamicAlbum/data/test_10"
     mask_path = "/Users/minair/DynamicAlbum/data/mask"
-    # png_path = "/Users/minair/DynamicAlbum/data/png"
     expand_mask_path = "/Users/minair/DynamicAlbum/data/expanded_mask"
     paired_dir = "/Users/minair/DynamicAlbum/data/paired_data"
     output_dir = "/Users/minair/DynamicAlbum/data/inpainted_results"
     
-    # convert all extensions to .png
-    # if not os.path.exists(png_path):
-    #     convert2png(open_path=image_path, save_path=png_path) 
-    
     # expand mask
-    # if not os.path.exists(expand_mask_path):
     expand_mask(open_path=mask_path, output_path=expand_mask_path)
     
     # pair (origin image, mask) && run inpaint
