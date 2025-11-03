@@ -1,0 +1,12 @@
+[
+  {
+    "label": "hot air balloon.",
+    "score": 0.9676182866096497,
+    "box": {
+      "xmin": 158,
+      "ymin": 120,
+      "xmax": 441,
+      "ymax": 528
+    }
+  }
+]

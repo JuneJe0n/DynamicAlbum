@@ -1,0 +1,22 @@
+[
+  {
+    "label": "pink. glass.",
+    "score": 0.5885054469108582,
+    "box": {
+      "xmin": 14,
+      "ymin": 66,
+      "xmax": 586,
+      "ymax": 573
+    }
+  },
+  {
+    "label": "pink. glass.",
+    "score": 0.40342065691947937,
+    "box": {
+      "xmin": 14,
+      "ymin": 65,
+      "xmax": 587,
+      "ymax": 573
+    }
+  }
+]

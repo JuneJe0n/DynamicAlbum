@@ -271,7 +271,7 @@ def save_background_image(image: np.ndarray, detections: List[DetectionResult], 
             binary_detection = (detection.mask > 0).astype(np.uint8)
             combined_mask = np.where(binary_detection > 0, 255, combined_mask)
 
-    # Create background image: original with segmented parts made black
+    # Create background image: original with segmented parts made magenta
     background_image = image.copy()
     mask_boolean = combined_mask > 0
     background_image[mask_boolean] = [0, 0, 0]

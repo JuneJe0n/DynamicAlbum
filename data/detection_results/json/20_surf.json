@@ -1,0 +1,82 @@
+[
+  {
+    "label": "flowers.",
+    "score": 0.7897903323173523,
+    "box": {
+      "xmin": 500,
+      "ymin": 484,
+      "xmax": 599,
+      "ymax": 585
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.7495071291923523,
+    "box": {
+      "xmin": 0,
+      "ymin": 59,
+      "xmax": 79,
+      "ymax": 154
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.7214046716690063,
+    "box": {
+      "xmin": 540,
+      "ymin": 415,
+      "xmax": 599,
+      "ymax": 484
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.6298708915710449,
+    "box": {
+      "xmin": 33,
+      "ymin": 10,
+      "xmax": 86,
+      "ymax": 65
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.48219558596611023,
+    "box": {
+      "xmin": 430,
+      "ymin": 32,
+      "xmax": 494,
+      "ymax": 111
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.4242556393146515,
+    "box": {
+      "xmin": 6,
+      "ymin": 455,
+      "xmax": 81,
+      "ymax": 541
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.4168594479560852,
+    "box": {
+      "xmin": 514,
+      "ymin": 80,
+      "xmax": 599,
+      "ymax": 171
+    }
+  },
+  {
+    "label": "flowers.",
+    "score": 0.3166007697582245,
+    "box": {
+      "xmin": 338,
+      "ymin": 250,
+      "xmax": 391,
+      "ymax": 303
+    }
+  }
+]

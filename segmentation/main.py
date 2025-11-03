@@ -14,9 +14,9 @@ from utils import *
 
 
 # --- Config ---
-image_path = "/Users/minair/DynamicAlbum/data/test_10/4 ONLY.jpg"  
-output_dir = "/Users/minair/DynamicAlbum/data"
-labels = ["bubble."]
+image_path = "/home/jiyoon/DynamicAlbum/data/test_20/20_surf.jpg"  
+output_dir = "/home/jiyoon/DynamicAlbum/data"
+labels = ["flowers"]
 
 threshold = 0.3
 detector_id = "IDEA-Research/grounding-dino-tiny"
