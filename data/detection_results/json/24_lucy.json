@@ -1,0 +1,42 @@
+[
+  {
+    "label": "flower.",
+    "score": 0.7205260396003723,
+    "box": {
+      "xmin": 318,
+      "ymin": 336,
+      "xmax": 570,
+      "ymax": 592
+    }
+  },
+  {
+    "label": "flower.",
+    "score": 0.6976454854011536,
+    "box": {
+      "xmin": 155,
+      "ymin": 220,
+      "xmax": 350,
+      "ymax": 484
+    }
+  },
+  {
+    "label": "flower.",
+    "score": 0.6505284309387207,
+    "box": {
+      "xmin": 417,
+      "ymin": 118,
+      "xmax": 592,
+      "ymax": 363
+    }
+  },
+  {
+    "label": "flower.",
+    "score": 0.6120990514755249,
+    "box": {
+      "xmin": 244,
+      "ymin": 78,
+      "xmax": 443,
+      "ymax": 238
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "label": "penguin.",
+    "score": 0.8105214238166809,
+    "box": {
+      "xmin": 426,
+      "ymin": 332,
+      "xmax": 748,
+      "ymax": 637
+    }
+  },
+  {
+    "label": "penguin.",
+    "score": 0.8073448538780212,
+    "box": {
+      "xmin": 679,
+      "ymin": 384,
+      "xmax": 1019,
+      "ymax": 731
+    }
+  },
+  {
+    "label": "penguin.",
+    "score": 0.8042023181915283,
+    "box": {
+      "xmin": 215,
+      "ymin": 357,
+      "xmax": 480,
+      "ymax": 745
+    }
+  }
+]
