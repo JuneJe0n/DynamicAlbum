@@ -1,0 +1,212 @@
+[
+  {
+    "label": "star.",
+    "score": 0.5757030844688416,
+    "box": {
+      "xmin": 89,
+      "ymin": 193,
+      "xmax": 127,
+      "ymax": 233
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5689493417739868,
+    "box": {
+      "xmin": 520,
+      "ymin": 213,
+      "xmax": 553,
+      "ymax": 247
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5669081807136536,
+    "box": {
+      "xmin": 7,
+      "ymin": 230,
+      "xmax": 44,
+      "ymax": 269
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5658843517303467,
+    "box": {
+      "xmin": 141,
+      "ymin": 104,
+      "xmax": 176,
+      "ymax": 139
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5601714253425598,
+    "box": {
+      "xmin": 344,
+      "ymin": 138,
+      "xmax": 377,
+      "ymax": 171
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5557847023010254,
+    "box": {
+      "xmin": 143,
+      "ymin": 351,
+      "xmax": 175,
+      "ymax": 385
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5533972978591919,
+    "box": {
+      "xmin": 245,
+      "ymin": 478,
+      "xmax": 269,
+      "ymax": 503
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5479474067687988,
+    "box": {
+      "xmin": 520,
+      "ymin": 327,
+      "xmax": 545,
+      "ymax": 353
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5475443005561829,
+    "box": {
+      "xmin": 453,
+      "ymin": 459,
+      "xmax": 491,
+      "ymax": 499
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5443233251571655,
+    "box": {
+      "xmin": 86,
+      "ymin": 471,
+      "xmax": 123,
+      "ymax": 509
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5410676002502441,
+    "box": {
+      "xmin": 439,
+      "ymin": 189,
+      "xmax": 467,
+      "ymax": 217
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5383297801017761,
+    "box": {
+      "xmin": 403,
+      "ymin": 435,
+      "xmax": 428,
+      "ymax": 461
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.538136899471283,
+    "box": {
+      "xmin": 0,
+      "ymin": 107,
+      "xmax": 16,
+      "ymax": 138
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5378612875938416,
+    "box": {
+      "xmin": 552,
+      "ymin": 512,
+      "xmax": 584,
+      "ymax": 545
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5368613004684448,
+    "box": {
+      "xmin": 16,
+      "ymin": 518,
+      "xmax": 48,
+      "ymax": 550
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5362824201583862,
+    "box": {
+      "xmin": 334,
+      "ymin": 514,
+      "xmax": 359,
+      "ymax": 540
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5274947285652161,
+    "box": {
+      "xmin": 427,
+      "ymin": 69,
+      "xmax": 453,
+      "ymax": 95
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5169965624809265,
+    "box": {
+      "xmin": 560,
+      "ymin": 73,
+      "xmax": 585,
+      "ymax": 100
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5018959641456604,
+    "box": {
+      "xmin": 532,
+      "ymin": 575,
+      "xmax": 569,
+      "ymax": 599
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.5006360411643982,
+    "box": {
+      "xmin": 246,
+      "ymin": 583,
+      "xmax": 272,
+      "ymax": 600
+    }
+  },
+  {
+    "label": "star.",
+    "score": 0.47887879610061646,
+    "box": {
+      "xmin": 452,
+      "ymin": 0,
+      "xmax": 490,
+      "ymax": 24
+    }
+  }
+]
